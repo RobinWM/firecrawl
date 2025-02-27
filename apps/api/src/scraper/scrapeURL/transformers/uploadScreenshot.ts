@@ -7,6 +7,7 @@ import { Document } from "../../../controllers/v1/types";
 
 export function uploadScreenshot(meta: Meta, document: Document): Document {
   if (
+    process.env.USE_DB_AUTHENTICATION === "true" &&
     document.screenshot !== undefined &&
     document.screenshot.startsWith("data:")
   ) {
